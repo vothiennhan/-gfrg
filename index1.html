@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang kỷ niệm</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('nen.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    /* Đăng nhập */
+    #loginBox {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+    #loginBox input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #loginBox button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ffcaca;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #loginBox button:hover {
+      background: #f4baba;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+    h1 {
+      color: #d94e4e;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .menu button {
+      padding: 10px 18px;
+      font-size: 16px;
+      border: none;
+      background-color: #ffcaca;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .menu button:hover {
+      background-color: #f4baba;
+    }
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    figure {
+      text-align: center;
+      max-width: 250px;
+    }
+    figure img, figure video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    figcaption {
+      margin-top: 8px;
+      font-size: 14px;
+      font-style: italic;
+      color: #555;
+    }
+    audio {
+      display: none;
+    }
+    .music-toggle {
+      font-size: 14px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #d94e4e;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hộp đăng nhập -->
+  <div id="loginBox">
+    <h2>Đăng nhập kỷ niệm</h2>
+    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu...">
+    <button onclick="checkLogin()">Vào trang</button>
+    <p id="loginError" style="color: red; display: none;">Sai mật khẩu rồi 😢</p>
+  </div>
+
+  <!-- Nội dung chính -->
+  <div class="container" id="mainContent">
+    <h1>Trang kỷ niệm của tụi mình</h1>
+
+    <div class="menu">
+      <button onclick="showSection('photos')">📸 Ảnh kỷ niệm</button>
+      <button onclick="showSection('videos')">🎬 Video kỷ niệm</button>
+      <button onclick="showSection('letter')">💌 Lời muốn nói</button>
+      <button class="music-toggle" onclick="toggleMusic()">🎵 Bật/tắt nhạc nền</button>
+    </div>
+
+    <div id="photos" class="section">
+      <h2>📷 Album ảnh</h2>
+      <div class="menu">
+        <button onclick="showAlbum('album1')">❤️ Một vài kỉ niệm chung</button>
+        <button onclick="showAlbum('album2')">🌸 Album 2</button>
+
+ </div>
+      <div id="album1" class="gallery" style="display:none">
+
+    <figure>
+          <img src="hinh1.jpg"
+          <figcaption>Hình tốt nghiệp nè 🌸</figcaption>
+        </figure>
+    	<figure>
+          <img src="hinh2.jpg" alt="Ảnh 3">
+          <figcaption>Đi chơi❤️Thảo Cầm Viên nè</figcaption>
+        </figure>
+    	<figure>
+          <img src="hinh3.jpg" alt="Ảnh 3">
+          <figcaption>Đi chơii❤️❤️❤️</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh4.jpg" alt="Ảnh 3">
+          <figcaption>Đi chơiiii❤️❤️❤️❤️</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh5.jpg" alt="Ảnh 3">
+          <figcaption>Tranh số hóa đầu tiên của Nhân🧑‍🎨</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh6.jpg" alt="Ảnh 3">
+          <figcaption>Tym nè❤️</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh7.jpg" alt="Ảnh 3">
+          <figcaption>Dễ thương hen!!🐼🐼</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh8.jpg" alt="Ảnh 3">
+          <figcaption>Likeeeee👍🏻👍🏻</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh9.jpg" alt="Ảnh 3">
+          <figcaption>Râu dữ v tr :_)</figcaption>
+        </figure>
+    <figure>
+          <img src="hinh10.jpg" alt="Ảnh 3">
+          <figcaption>Vẫn ở TCV nè🐒🐍🦩</figcaption>
+        </figure>     
+  <figure>
+          <img src="hinh11.jpg" alt="Ảnh 3">
+          <figcaption>Woww hôm này được lên sóng nè🤳🏼</figcaption>
+        </figure>  
+  <figure>
+          <img src="hinh12.jpg" alt="Ảnh 3">
+          <figcaption>🧔🏻Vẫn râu thấy gê🧔🏻</figcaption>
+        </figure>  
+  <figure>
+          <img src="hinh13.jpg" alt="Ảnh 3">
+          <figcaption>❤️❤️Tym siu bự❤️❤️ </figcaption>
+        </figure>  
+  <figure>
+          <img src="hinh14.jpg" alt="Ảnh 3">
+          <figcaption>Có người khen hình này cute</figcaption>
+        </figure>  
+  <figure>
+          <img src="hinh15.jpg" alt="Ảnh 3">
+          <figcaption>Nay chị lính đi ngủ🛌🏼💤</figcaption>
+        </figure>  
+      </div>
+      <div id="album2" class="gallery" style="display:none">
+        <figure>
+          <img src="hinh3.jpg" alt="Ảnh 3">
+          <figcaption>Cap</figcaption>
+        </figure>
+        <figure>
+          <img src="hinh4.jpg" alt="Ảnh 4">
+          <figcaption>cap</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div id="videos" class="section">
+      <h2>🎥 Video kỷ niệm</h2>
+      <div class="gallery">
+        <figure>
+          <video controls>
+            <source src="video1.mp4" type="video/mp4">
+          </video>
+          <figcaption>Khoảnh khắc đáng nhớ 🎉</figcaption>
+        </figure>
+        <figure>
+          <video controls>
+            <source src="video2.mp4" type="video/mp4">
+          </video>
+          <figcaption>Em hát và anh cười 😊</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div id="letter" class="section">
+      <h2>💌 Lời muốn nói</h2>
+      <p style="max-width: 600px; margin: auto; line-height: 1.6; font-size: 16px;">
+               — Anh 💖
+      </p>
+    </div>
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="nhacnen.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Kiểm tra mật khẩu
+    function checkLogin() {
+      const password = document.getElementById('passwordInput').value;
+      const error = document.getElementById('loginError');
+      if (password === "123") { // Đổi mật khẩu tại đây nếu muốn
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+        document.getElementById('backgroundMusic').play();
+      } else {
+        error.style.display = 'block';
+      }
+    }
+
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function showAlbum(albumId) {
+      document.querySelectorAll('.gallery').forEach(g => g.style.display = 'none');
+      document.getElementById(albumId).style.display = 'flex';
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("backgroundMusic");
+      music.paused ? music.play() : music.pause();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('album1').style.display = 'flex';
+    });
+  </script>
+
+</body>
+</html>
